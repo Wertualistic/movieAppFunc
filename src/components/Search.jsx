@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export default function Search({ searchMovies }) {
-  const [search, setSearch] = useState("");
-  const [type, setType] = useState("all");
+  const [search, setSearch] = useState('panda');
+  const [type, setType] = useState('all');
 
   const handleKey = (e) => {
     if (e.key === "Enter") {
@@ -17,20 +17,20 @@ export default function Search({ searchMovies }) {
 
   return (
     <>
-      <div class="row">
-        <div class="col s12">
-          <div class="input-field" style={{ display: "flex" }}>
+      <div className="row">
+        <div className="col s12">
+          <div className="input-field" style={{ display: "flex" }}>
             <input
               placeholder="Search"
               type="text"
               className="validate"
               value={search}
-              onChange={(e) => setSearch((search, e.target.value))}
+              onChange={(e) => setSearch((e.target.value))}
               onKeyDown={handleKey}
             />
             <a
-              class="waves-effect waves-light btn"
-              onClick={() => search(search, type)}
+              className="waves-effect waves-light btn"
+              onClick={() => searchMovies(search, type)}
             >
               Search movies
             </a>
@@ -38,34 +38,34 @@ export default function Search({ searchMovies }) {
           <div style={{ gap: "30px", display: "flex" }}>
             <label>
               <input
-                class="with-gap"
+                className="with-gap"
                 name="type"
                 type="radio"
                 data-type="all"
                 onChange={handleFilter}
-                checked={type === "all"}
+                checked={type === 'all'}
               />
               <span>All</span>
             </label>
             <label>
               <input
-                class="with-gap"
+                className="with-gap"
                 name="type"
                 type="radio"
                 data-type="movie"
                 onChange={handleFilter}
-                checked={type === "movie"}
+                checked={type === 'movie'}
               />
               <span>Movies</span>
             </label>
             <label>
               <input
-                class="with-gap"
+                className="with-gap"
                 name="type"
                 type="radio"
                 data-type="series"
                 onChange={handleFilter}
-                checked={type === "series"}
+                checked={type === 'series'}
               />
               <span>Series</span>
             </label>
